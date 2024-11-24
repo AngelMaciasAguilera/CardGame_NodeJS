@@ -14,9 +14,12 @@ body{
 .card-container{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 1rem;
-    justify-content: space-between;
+    justify-content: flex-start;
+    border: 5px dotted darkgray;
     align-items: flex-start;
+    padding: 1rem;
     margin: 2rem 2rem 0rem 2rem;
 }
 
