@@ -12,7 +12,7 @@ uiDesk.generateDesk();
 //Generamos los huecos(hollows) de las cartas
 uiHollows.init();
 uiHollows.fill(type);
-uiHollows.generateHollows("hollows-container");
+uiHollows.generateHollows();
 
 
 

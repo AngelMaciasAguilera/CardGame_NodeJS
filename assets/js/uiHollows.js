@@ -1,5 +1,6 @@
 import { hollowsStructure } from "./hollowsStructure.js";
 import { cardsStructure } from "./cardsStructure.js";
+import { hollowMainContainerStructure } from "./hollowMainContainerStructure.js";
 export const uiHollows = {
 
     hollows: [],
@@ -20,6 +21,7 @@ export const uiHollows = {
                 let hollowClone = uiHollows.hollowSchema.cloneNode(true);
                 hollowClone.children[0].textContent = item;
                 hollowClone.id = item;
+                hollowClone.dataset.club = item;
                 hollowClone.addEventListener("dragover", (event) => {
                     event.preventDefault();
                 });
@@ -28,12 +30,12 @@ export const uiHollows = {
                     event.preventDefault();  // Evitar el comportamiento por defecto
                 
                     const data = JSON.parse(event.dataTransfer.getData("text"));
-                    console.log(data);
                 
                     const draggedElement = document.getElementById(data.id);
                 
                     // Movemos el elemento dentro del contenedor sin cambiar su posición
-                    if (!event.target.contains(draggedElement)) {
+                    if (!event.target.contains(draggedElement) && data.club === event.target.dataset.club) {
+                        console.log(data);
                         event.target.appendChild(draggedElement);
                     }
                 });
@@ -43,11 +45,17 @@ export const uiHollows = {
         }
     },
 
-    generateHollows: (parent)=>{
-        let parentElement = document.getElementById(parent);
-        uiHollows.hollows.forEach(hollow => {
-            parentElement.appendChild(hollow);
+    generateHollows: ()=>{
+        let hollowMainContainer = document.createElement(hollowMainContainerStructure.mainContainerElement);
+        console.log(hollowMainContainer);
+        hollowMainContainerStructure.classes.forEach(classelement => {
+            hollowMainContainer.classList.add(classelement);
         });
+        hollowMainContainer.setAttribute('id', hollowMainContainerStructure.id);
+        uiHollows.hollows.forEach(hollow => {
+            hollowMainContainer.appendChild(hollow);
+        });
+        document.body.appendChild(hollowMainContainer);
     }
 
 

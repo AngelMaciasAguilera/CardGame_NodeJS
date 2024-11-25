@@ -34,9 +34,13 @@ export const uiDesk = {
                     cardClone.addEventListener('dragstart', (event) => {
                         const sendData = {
                             id: event.target.id,
+                            club: event.target.dataset.club
                         }
                         event.dataTransfer.setData("text", JSON.stringify(sendData));
                     });
+
+                    cardClone.dataset.club = item;
+
                     cardClone.children[0].textContent = i;
                     cardClone.children[1].textContent = item;
                     cardClone.children[2].textContent = i;
