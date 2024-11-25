@@ -10,6 +10,13 @@ export const uiDesk = {
             uiDesk.cardSchema.classList.add(classelement);    
         });
         
+        cardsStructure.attributes.forEach(attribute => {
+            for (const key in attribute) {
+                console.log(attribute[key]);
+                uiDesk.cardSchema.setAttribute(key, attribute[key]);
+            }
+        });
+
         cardsStructure.childElements.forEach(element => {
             uiDesk.cardSchema.appendChild(document.createElement(element));
         })

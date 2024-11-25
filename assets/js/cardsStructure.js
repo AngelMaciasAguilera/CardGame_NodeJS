@@ -4,6 +4,12 @@ export const cardsStructure = {
         spanish : ['copas', 'bastos', 'espadas', 'oros']
     },
     mainCardContainer: 'div',
+    attributes: [
+        {
+            draggable: 'true',
+            color: 'red'
+        },
+    ],
     cardClasses: ['card'],
     childElements: ['div','div','div']
 }
