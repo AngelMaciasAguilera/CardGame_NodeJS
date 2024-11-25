@@ -36,6 +36,11 @@ body{
     background-color: whitesmoke;
 }
 
+
+.card:hover{
+    cursor: grab;
+}
+
 .card div:nth-child(2){
     align-self: center;
 }
