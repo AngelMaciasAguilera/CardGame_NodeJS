@@ -19,6 +19,7 @@ body{
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: flex-start;
+    color: black;
     border: 5px dotted darkgray;
     align-items: flex-start;
     padding: 1rem;
@@ -81,3 +82,26 @@ body{
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+
+
+.card-hollows {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 1rem;
+    justify-content: space-between; 
+    border: 10px double black;
+    align-items: flex-start;
+    padding: 1rem;
+    margin: 2rem 2rem 0rem 2rem;
+}
+
+.card-hollow {
+    width: calc(50% - 1rem); 
+    height: 200px;
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: row;
+    border: 5px dotted darkgrey; 
+    border-radius: 8px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
+}

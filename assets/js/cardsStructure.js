@@ -6,8 +6,7 @@ export const cardsStructure = {
     mainCardContainer: 'div',
     attributes: [
         {
-            draggable: 'true',
-            color: 'red'
+            draggable: 'true'
         },
     ],
     cardClasses: ['card'],

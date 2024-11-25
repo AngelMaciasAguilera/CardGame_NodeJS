@@ -6,13 +6,13 @@ export const uiDesk = {
     type: '',
     init: ()=>{
         uiDesk.cardSchema = document.createElement(cardsStructure.mainCardContainer);
+
         cardsStructure.cardClasses.forEach(classelement => {
             uiDesk.cardSchema.classList.add(classelement);    
         });
         
         cardsStructure.attributes.forEach(attribute => {
             for (const key in attribute) {
-                console.log(attribute[key]);
                 uiDesk.cardSchema.setAttribute(key, attribute[key]);
             }
         });
@@ -30,6 +30,13 @@ export const uiDesk = {
                 //Genero las 12 cartas de manera dinamica
                 for(let i = 1; i <= 12; i++){
                     let cardClone = uiDesk.cardSchema.cloneNode(true);
+                    cardClone.setAttribute('id', item + i);
+                    cardClone.addEventListener('dragstart', (event) => {
+                        const sendData = {
+                            id: event.target.id,
+                        }
+                        event.dataTransfer.setData("text", JSON.stringify(sendData));
+                    });
                     cardClone.children[0].textContent = i;
                     cardClone.children[1].textContent = item;
                     cardClone.children[2].textContent = i;
