@@ -30,6 +30,8 @@ export const uiDesk = {
                 }
             });
 
+        }else{
+            return false;
         }
     },
 
